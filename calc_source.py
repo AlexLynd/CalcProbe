@@ -7,7 +7,6 @@ import os
 GPIO.setwarnings(False)
 
 inp=''
-inp10=''
 programlist=[calc,ref,rand]
 
 matrix=[
@@ -24,7 +23,7 @@ factory= rpi_gpio.KeypadFactory()
 keypad= factory.create_keypad(keypad=matrix,row_pins=row,col_pins=col)
    
 def prog_validate(key):
-    global inp, inp10, programlist
+    global inp, programlist
     if (len(inp)<8) and (type(key)== int):
         inp=inp+str(key)
         print(inp)
