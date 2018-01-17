@@ -30,11 +30,11 @@ def prog_validate(key):
     if key== '=':
         try:
             inp10= int(inp,2)
-			keypad.registerKeyPressHandler(programlist[prog_id])
+			keypad.registerKeyPressHandler(programlist[inp10])
         except ValueError:
             print('Error')
 		except IndexError:
-		
+			print('Error')
         else:
             print('Valid binary input.')
             print(inp10)
