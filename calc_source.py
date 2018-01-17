@@ -3,11 +3,12 @@ import RPi.GPIO as GPIO
 import math
 import random
 import time
+import os
 GPIO.setwarnings(False)
 
 inp=''
 inp10=''
-programlist=[]
+programlist=[calc,ref,rand]
 
 matrix=[
     ['%',7,'=',0,'RM',None],
@@ -30,25 +31,18 @@ def prog_validate(key):
     if key== '=':
         try:
             inp10= int(inp,2)
+			keypad.registerKeyPressHandler(programlist[prog_id])
         except ValueError:
             print('Error')
+		except IndexError:
+		
         else:
             print('Valid binary input.')
             print(inp10)
-            prog_run(inp10)            
+			keypad.unregisterKeyPressHandler(prog_validate)
     if key== 'clr'or key== '=':
         print('clr')
         inp=''
-        
-def prog_run(prog_id):
-    keypad.unregisterKeyPressHandler(prog_validate)
-    programlist=[calc,ref,rand]
-    try:
-        keypad.registerKeyPressHandler(programlist[prog_id])
-    except:
-        print('NONE')
-    else:
-        print('valid program')
         
 def default(prog_name):
     keypad.unregisterKeyPressHandler(prog_name)
