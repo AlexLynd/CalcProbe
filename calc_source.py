@@ -1,4 +1,5 @@
 from pad4pi import rpi_gpio
+from calc_modules import *
 import RPi.GPIO as GPIO
 import math
 import random
@@ -7,20 +8,21 @@ import os
 GPIO.setwarnings(False)
 
 inp=''
-programlist=[calc,ref,rand]
-
-matrix=[
+matrix= [
     ['%',7,'=',0,'RM',None],
     ['M-',8,'M+',1,4,None], 
     ['clr',9,'/',2,5,None],
     ['+','-','X',3,6,'on'],
     [None,None,None,'sqrt','.',None]   ]
-
-row=[4,11,22,18,10]
-col=[17,9,27,14,3,15]
+row= [4,11,22,18,10]
+col= [17,9,27,14,3,15]
 
 factory= rpi_gpio.KeypadFactory()
 keypad= factory.create_keypad(keypad=matrix,row_pins=row,col_pins=col)
+
+with open(calc_modules.txt) as f:
+    programlist = f.readlines()
+programlist = [x.strip(/n) for x in content] 
    
 def prog_validate(key):
     global inp, programlist
@@ -40,24 +42,10 @@ def prog_validate(key):
             print(inp10)
 			keypad.unregisterKeyPressHandler(prog_validate)
     if key== 'clr'or key== '=':
-        print('clr')
         inp=''
         
 def default(prog_name):
     keypad.unregisterKeyPressHandler(prog_name)
     keypad.registerKeyPressHandler(prog_validate)
-##----------------------------------##    
-def calc(key):
-    if key!='on':
-        print('calc')
-        print(key)
-    default(calc)
-    
-def ref(key):
-    print('ref')
-    print(programlist)
-    
-def rand(key):
-    print('rand')
-##----------------------------------##    
+	
 keypad.registerKeyPressHandler(prog_validate)
