@@ -1,14 +1,16 @@
-def calc(key):
+def calc(key):						#----Normal Calculator----#
     if key!='on':
         print('calc')
         print(key)
     default(calc)
     
-def ref(key):
+def ref(key):						#----Program Reference----#
     print('ref')
     print(programlist)
 	default(ref)
     
-def rand(key):
+def rand(key):						#----Number Generator----#
     print('rand')
 	default(rand)
+
+ 
