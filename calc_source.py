@@ -1,12 +1,10 @@
+from calc_modules import calc, ref  
 from pad4pi import rpi_gpio
-from calc_modules import *
-import RPi.GPIO as GPIO
-import math
-import random
-import time
 import os
+
 GPIO.setwarnings(False)
 
+programlist= [calc,ref] 
 inp=''
 matrix= [
     ['%',7,'=',0,'RM',None],
@@ -19,10 +17,6 @@ col= [17,9,27,14,3,15]
 
 factory= rpi_gpio.KeypadFactory()
 keypad= factory.create_keypad(keypad=matrix,row_pins=row,col_pins=col)
-
-with open(calc_modules.txt) as f:
-    programlist = f.readlines()
-programlist = [x.strip(/n) for x in content] 
    
 def prog_validate(key):
     global inp, programlist
