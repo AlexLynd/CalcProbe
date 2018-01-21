@@ -1,3 +1,0 @@
-calc \n
-ref \n
-rand \n
