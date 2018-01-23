@@ -1,3 +1,7 @@
+import random
+import math
+import time
+
 def calc(key):						#----Normal Calculator----#
     if key!='on':
         print('calc')
