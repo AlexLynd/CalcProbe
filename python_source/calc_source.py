@@ -21,7 +21,7 @@ keypad= factory.create_keypad(keypad=matrix,row_pins=row,col_pins=col)
 def prog_validate(key):
     global inp, programlist
     if (len(inp)<8) and (type(key)== int):
-        inp=inp+str(key)
+        inp+=str(key)
         print(inp)
     if key== '=':
         try:
