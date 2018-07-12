@@ -1,7 +1,10 @@
 from calc_modules import calc, ref  
 from matrices import *
 from pad4pi import rpi_gpio
-import os
+import os, sys
+
+sys.path.append('/matrices')
+from Canon import LS82Z[]
 
 GPIO.setwarnings(False)
 
