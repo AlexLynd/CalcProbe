@@ -3,12 +3,9 @@ from matrices import *
 from pad4pi import rpi_gpio
 import os, sys
 
-sys.path.append('/matrices')
-from Canon import LS82Z[]
-
 GPIO.setwarnings(False)
 
-programlist= [calc,ref] 
+# programlist= [calc,ref] 
 inp=''
 matrix= [
     ['%',7,'=',0,'RM',None],
